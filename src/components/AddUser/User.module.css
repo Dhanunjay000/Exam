@@ -1,0 +1,74 @@
+/* components/UserForm.module.css */
+.container {
+    background-color: #f0f4f8;
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    width: 38rem;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 2rem;
+    border: none;
+  }
+  
+  .card-header {
+    background-color: transparent;
+    color: #1a73e8;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group label {
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .form-control {
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .form-control:focus {
+    border-color: #1a73e8;
+    box-shadow: 0px 0px 5px rgba(26, 115, 232, 0.3);
+  }
+  .required-label{
+    color:#cc5047;
+  }
+  
+  .btn-primary {
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1558c0;
+  }
+  
+  .btn-primary:focus {
+    background-color: #1558c0;
+    box-shadow: 0px 0px 10px rgba(21, 88, 192, 0.5);
+  }
+  .error-msg{
+    color: #cc5047;
+  }
+  
