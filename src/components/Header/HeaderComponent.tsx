@@ -5,11 +5,8 @@ import Cookies from 'js-cookie';
 import { useRouter } from "next/router";
 import ProfileComponent from "../Profile/ProfileComponent";
 import ConfirmationModal from "../Models/ConfirmationModel";
-import ChangePasswordComponent from "../Profile/ChangePasswordComponent";
-interface HeaderProps {
 
-}
-const HeaderComponent: React.FC<HeaderProps> = ({ }) => {
+const HeaderComponent: React.FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [username, setUsername] = useState<string>("");
   const [showModel, setShowModel] = useState<boolean>(false);
@@ -31,9 +28,6 @@ const HeaderComponent: React.FC<HeaderProps> = ({ }) => {
     setShowModel(true);
   }
 
-  const handleUpdateProfile = () => {
-    
-  }
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -48,9 +42,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({ }) => {
        />
       )}
       {showModel && (
-
             <ProfileComponent username={username} setShowModel={setShowModel} />
-
       )}
 
       <div className={styles.profileWrapper}>

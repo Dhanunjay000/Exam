@@ -1,91 +1,144 @@
 .dashboardContainer {
-    max-width: 900px;
-    margin: 2rem auto;
-    font-family: Arial, sans-serif;
-    padding: 0 1rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 1.5rem;
+  color: #2d3748;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  /* background:  */
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.resultsTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.95rem;
+}
+
+.resultsTable th {
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  color: white;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.resultsTable th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.resultsTable th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.resultsTable td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #edf2f7;
+  vertical-align: middle;
+}
+
+.resultsTable tr:not(:last-child) td {
+  border-bottom: 1px solid #edf2f7;
+}
+
+.resultsTable tr:hover td {
+  background-color: #f8fafc;
+}
+
+.resultsTable tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.previewButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(to right, #10b981, #34d399);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.previewButton:hover {
+  background: linear-gradient(to right, #059669, #10b981);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.previewButton:active {
+  transform: translateY(0);
+}
+
+.noData {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboardContainer {
+      padding: 0 1rem;
   }
   
-  .heading {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #333;
+  .header {
+      padding: 1rem;
   }
   
-  .searchBox {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 0 1rem auto;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  .header h1 {
+      font-size: 1.8rem;
   }
   
-  .resultTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
+  .resultsTable th,
+  .resultsTable td {
+      padding: 0.75rem;
   }
-  
-  .resultTable th,
-  .resultTable td {
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-    text-align: left;
-  }
-  
-  .resultTable th {
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-  }
-  
-  .resultTable tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .resultTable tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .pagination button {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 0.5rem 1.1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .pagination button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-  
-  .exportBtn {
-    display: inline-block;
-    background-color: #28a745;
-    color: white !important;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  .exportBtn:hover {
-    background-color: #218838;
-  }
-  
+}
+
+/* Animation for table rows */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.resultsTable tbody tr {
+  animation: fadeIn 0.3s ease forwards;
+}
+

@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from './ResultsCard.module.css'
 import { useRouter } from 'next/router';
 import HeaderComponent from '../Header/HeaderComponent';
+import Cookies from 'js-cookie';
+import MessageModel from '../Models/MessageModel';
 
 interface ResultsPageProps {
   correctAnswers?: number;
@@ -17,12 +19,14 @@ interface Question_type {
   answer: string
 }
 
-const ResultsCard: React.FC<ResultsPageProps> = ({ }) => {
+  const username = Cookies.get("username");
+  const ResultsCard: React.FC<ResultsPageProps> = ({ }) => {
   const router = useRouter();
   const [questions, setQuestions] = useState<Question_type[]>([]);
   const [submittedData, setSubmittedData] = useState<Question_type[]>([]);
   const [totalQuestions, setTotalQuestions] = useState<number>(0);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [subject , setSubject] = useState<string | null>("");
   const [results, setResults] = useState({
     answered: 0,
     unAnswered: 0,
@@ -30,20 +34,26 @@ const ResultsCard: React.FC<ResultsPageProps> = ({ }) => {
     inCorrectAns: 0,
     percentage: 0,
   });
+  const [showMsgModel, setShowMsgModel] = useState(false);
+  const [message, setMessage] = useState<string>("");
+  const [messageType, setMessageType] = useState<string>(""); 
+
 
 
   useEffect(() => {
     const result: string | null = sessionStorage.getItem('questionData');
+    const subject_name = sessionStorage.getItem("subject");
+    console.log(subject_name)
+    setSubject(subject_name)
     if (result) {
       var data = JSON.parse(result);
       setSubmittedData(data);
     }
-    const subject = sessionStorage.getItem("subject");
     const fetch_questions = async () => {
-      if (!subject)
+      if (!subject_name)
         router.push('/subjects');
       try {
-        const response = await fetch(`/api/questions?subject=${subject}&valid=${false}`);
+        const response = await fetch(`/api/questions?subject=${subject_name}&valid=${false}`);
         const data = await response.json();
         setQuestions(data);
         setTotalQuestions(data.length)
@@ -71,6 +81,43 @@ const ResultsCard: React.FC<ResultsPageProps> = ({ }) => {
     }
   }, [questions])
 
+  useEffect(() => {
+    if (results) {
+      const submitResults = async () => {
+        try {
+          const response = await fetch('/api/results', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              username,
+              subject,
+              total: totalQuestions,
+              ans: results.answered,
+              unans: results.unAnswered,
+              crct: results.correctAns,
+              incrct: results.inCorrectAns,
+            }),
+          });
+          setShowMsgModel(true)
+          if (response.ok) {
+            setMessage('Submission successful');
+            setMessageType('success');
+          } else {
+            setMessage('Submission failed');
+            setMessageType('error');
+          }
+        } catch (error) {
+          setShowMsgModel(true)
+          setMessage('Error submitting results');
+          setMessageType('error');
+        }
+      };
+      submitResults();
+    }
+  }, [results])
+
   const handlePrevious = () => {
     if (currentQuestion >= 0) {
       setCurrentQuestion(currentQuestion - 1);
@@ -87,8 +134,8 @@ const ResultsCard: React.FC<ResultsPageProps> = ({ }) => {
   }
   return (
     <>
-   <HeaderComponent
-          />
+      <HeaderComponent/>
+      {showMsgModel && <MessageModel message={message} type={messageType} onClose={() => { setShowMsgModel(false); setMessage("") }} />}
       {questions.length > 0 && (
         <>
           <div className={styles.container}>
