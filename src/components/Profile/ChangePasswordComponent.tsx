@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./ProfileComponent.module.css";
-import Cookies from "js-cookie";
 import SpinnerComponent from "../common/spinner/SpinnerComponent";
 import MessageModel from "../Models/MessageModel";
 import CountdownTimer from "../Exam/CountdownTimer";

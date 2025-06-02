@@ -22,7 +22,7 @@ interface Question_type {
   options: string[]
 }
 
-const ExamLayout: React.FC<ExamLayoutProps> = ({ subject, userName, timeRemaining }) => {
+const ExamLayout: React.FC<ExamLayoutProps> = ({ subject, userName }) => {
   const router = useRouter()
   const [selectedOption, setSelectedOption] = useState<string>("")
   const [currentQuestion, setCurrentQuestion] = useState<number>(0)
@@ -126,23 +126,6 @@ const ExamLayout: React.FC<ExamLayoutProps> = ({ subject, userName, timeRemainin
     }, 3000)
   }
 
-  const renderProgressCards = () => {
-    const cards = []
-    for (let i = 0; i < totalQuestions; i++) {
-      var answered = questionData.find((q) => q.question_no == i)
-      const isAnswered = answered?.ans
-      cards.push(
-        <button
-          key={i}
-          className={`${styles.card} ${isAnswered ? styles.answered : styles.unanswered}`}
-          onClick={() => setCurrentQuestion(i)}
-        >
-          {i + 1}
-        </button>,
-      )
-    }
-    return cards
-  }
   const goFullScreen = () => {
     const elem = document.documentElement
     if (elem.requestFullscreen) {
@@ -195,11 +178,6 @@ const ExamLayout: React.FC<ExamLayoutProps> = ({ subject, userName, timeRemainin
       {questions.length > 0 && (
         <>
           <div className={styles.examContainer}>
-            {document.fullscreenElement && (
-              <div className={styles.exitHint}>
-                To exit full screen, press <span className={styles.escKey}>Esc</span>
-              </div>
-            )}
 
             <div className={styles.examLayout}>
               <div className={styles.questionSection}>

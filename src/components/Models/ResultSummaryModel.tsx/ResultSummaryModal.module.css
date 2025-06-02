@@ -1,0 +1,148 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modalContent {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .closeButton:hover {
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+    transform: rotate(90deg);
+  }
+
+  /* Summary cards grid */
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Individual summary cards */
+  .summary-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .summary-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .summary-card h5 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    font-weight: 500;
+  }
+  
+  .summary-card .value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  /* Card color variants */
+  .answered {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+  }
+  
+  .unanswered {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+  
+  .correct {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+  
+  .incorrect {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+  }
+  
+  .total {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+  }
+  
+  .percentage {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+  }
+  .subjectHeader {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+  }
+  
+  .subjectLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .subjectName {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .dateTime {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .totalQuestions {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.95;
+  }
+
+  .modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+  }

@@ -1,0 +1,111 @@
+.tableContainer {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background-color: #f8f9fc;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.tableHeader h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4e73df;
+}
+
+.searchContainer {
+  position: relative;
+  width: 300px;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  border: 1px solid #d1d3e2;
+  border-radius: 0.35rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #bac8f3;
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem;
+  height: 1rem;
+  color: #b7b9cc;
+}
+
+.dataTable {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Hover effect for rows */
+.dataTable .rdt_TableBody .rdt_TableRow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Active row effect */
+.dataTable .rdt_TableBody .rdt_TableRow:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Selected row style */
+.dataTable .rdt_TableRow[aria-selected="true"] {
+  background-color: rgba(78, 115, 223, 0.1) !important;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.exportButton {
+  padding: 0.5rem 1rem;
+  background-color: #4e73df;
+  color: white;
+  border-radius: 0.35rem;
+  text-decoration: none;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.exportButton:hover {
+  background-color: #3a5bc7;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.exportButton:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.exportButton svg {
+  width: 1rem;
+  height: 1rem;
+}

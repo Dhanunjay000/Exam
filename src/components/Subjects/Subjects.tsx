@@ -41,12 +41,15 @@ const Subjects: React.FC = () => {
   const totalPages = Math.ceil(filteredSubjects.length / subjectsPerPage);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
         const res = await fetch("/api/subjects");
+        if(res.ok){
         const data = await res.json();
         setSubjectList(data);
+        }
 
       }
       catch (error) {

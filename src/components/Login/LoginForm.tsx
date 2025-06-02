@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './LoginForm.module.css';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import MessageModel from '../Models/MessageModel';
@@ -145,7 +145,7 @@ const LoginForm = () => {
         } else {
           setMessage(result.message || 'Login successful');
           Cookies.set('username', formData.username, { expires: 0.0208 });
-          router.push('/subjects');
+          router.push('/dashboard');
           setMessageType('success');
           setShowModel(true);
         }

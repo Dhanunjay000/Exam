@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
   compress: true,
   swcMinify: true,
   images: {
-    domains: [],
+    domains: ['static.vecteezy.com'],
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {

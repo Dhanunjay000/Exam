@@ -25,7 +25,7 @@ const ProfileComponent: React.FC<ProfileComponentProps> = ({ username, setShowMo
   const [detailsUpdated, setDetailsUpdated] = useState<boolean>(false);
   const [showMsgModel, setShowMsgModel] = useState(false);
   const [message, setMessage] = useState<string>("");
-  const [messageType, setMessageType] = useState<string>(""); 
+  const [messageType, setMessageType] = useState<string>("");
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -71,9 +71,10 @@ const ProfileComponent: React.FC<ProfileComponentProps> = ({ username, setShowMo
         setMessage("Failed to update profile");
         setMessageType('error')
         setShowMsgModel(true);
-        
+
       }
-    } catch (error) {``
+    } catch (error) {
+      ``
       console.error("Error updating profile:", error);
       setMessage("Failed to update profile");
       setMessageType('error')
@@ -99,19 +100,19 @@ const ProfileComponent: React.FC<ProfileComponentProps> = ({ username, setShowMo
         <div className={styles.modalOverlay}>
           <div className={styles.modalBox}>
             <div className={styles.modalHeader}>
-              <h2> User  Profile</h2>
+              <h2>User Profile</h2>
               <button className={styles.closeButton} onClick={() => setShowModel(false)}>
                 ×
               </button>
             </div>
-            <form className={styles.profileContainer} >
+            <form className={styles.profileContainer} onSubmit={handleUpdateProfile}>
               <div className={styles.profileCard}>
                 <div className={styles.profileRow}>
                   <label htmlFor="first_name">First Name</label>
                   <input
                     type="text"
                     id="first_name"
-                    name='first_name'
+                    name="first_name"
                     value={userDetails.first_name}
                     onChange={handleChange}
                     className={styles.inputField}
@@ -123,7 +124,7 @@ const ProfileComponent: React.FC<ProfileComponentProps> = ({ username, setShowMo
                   <input
                     type="text"
                     id="last_name"
-                    name='last_name'
+                    name="last_name"
                     value={userDetails.last_name}
                     onChange={handleChange}
                     className={styles.inputField}
@@ -135,48 +136,43 @@ const ProfileComponent: React.FC<ProfileComponentProps> = ({ username, setShowMo
                   <input
                     type="date"
                     id="dob"
-                    name='dob'
+                    name="dob"
                     value={userDetails.dob}
                     onChange={handleChange}
                     className={styles.inputField}
                   />
                 </div>
+
                 <div className={styles.profileRow}>
                   <label htmlFor="gender">Gender</label>
-                  <input
-                    type="text"
+                  <select
                     id="gender"
-                    name='gender'
-                    onChange={handleChange}
-                    value={userDetails.gender === "M" ? "Male" : "Female"}
+                    name="gender"
+                    value={userDetails.gender}
+                    onChange={(e) => handleChange(e as any)}
                     className={styles.inputField}
-                  />
+                  >
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                    <option value="O">Other</option>
+                  </select>
                 </div>
 
                 <div className={styles.profileRow}>
                   <label htmlFor="phone">Phone</label>
-                  <input
-                    type="text"
-                    id="phone"
-                    value={userDetails.phone}
-                    disabled
-                    className={styles.inputField}
-                  />
+                  <input type="text" id="phone" value={userDetails.phone} disabled className={styles.inputField} />
                 </div>
 
                 <div className={styles.profileRow}>
                   <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={userDetails.username}
-                    disabled
-                    className={styles.inputField}
-                  />
+                  <input type="email" id="email" value={userDetails.username} disabled className={styles.inputField} />
                 </div>
               </div>
               <div className={styles.modalFooter}>
-                <button className={styles.updateButton} onClick={handleUpdateProfile} disabled={!detailsUpdated}>
+                <button type="button" className={styles.cancelButton} onClick={() => setShowModel(false)}>
+                  Cancel
+                </button>
+                <button type="submit" className={styles.updateButton} disabled={!detailsUpdated}>
                   Update Profile
                 </button>
               </div>
