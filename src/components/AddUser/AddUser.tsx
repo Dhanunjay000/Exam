@@ -80,7 +80,7 @@ const AddUserForm: React.FC<UserFormProps> = () => {
     }
 
     try {
-      var response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`, {
+      var response = await fetch(`/api/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
