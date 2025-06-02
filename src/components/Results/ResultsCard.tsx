@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import HeaderComponent from '../Header/HeaderComponent';
 import Cookies from 'js-cookie';
 import MessageModel from '../Models/MessageModel';
-import { CheckCircleOutline } from '@mui/icons-material';
 
 interface ResultsPageProps {
   correctAnswers?: number;

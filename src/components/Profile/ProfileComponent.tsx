@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ProfileComponent.module.css";
-import Cookies from "js-cookie";
 import SpinnerComponent from "../common/spinner/SpinnerComponent";
 import MessageModel from "../Models/MessageModel";
 interface UserProfile {
