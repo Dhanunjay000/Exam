@@ -48,7 +48,7 @@ const AddUserForm: React.FC<UserFormProps> = () => {
         break;
       case "password": 
         if(value.length < 6) {
-          error = "Password must br at least 6 characters";
+          error = "Password must be at least 6 characters";
         }
         break;
       default :

@@ -12,5 +12,5 @@ export function middleware (request :NextRequest){
 return NextResponse.next();
 }
 export const config = {
-    matcher: ['/exam','/subjects','/login','/']
+    matcher: ['/exam','/subjects','/login','/','/dashboard']
   } 
