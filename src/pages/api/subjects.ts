@@ -17,7 +17,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         try {
             const { title, description, icon } = req.body;
             const result = await db.collection("Subjects").insertOne({ title, description , icon});
-            res.status(200).json({ message: "Subject added successfully" });
+            if (result)
+                res.status(200).json({ message: "Subject added successfully" });
         } catch (error) {
             console.error("Error adding user:", error);
             res.status(500).json({ message: "Internal server error" });

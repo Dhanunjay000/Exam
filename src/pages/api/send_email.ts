@@ -1,9 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiResponse } from "next";
 import { Resend } from "resend";
 
 const resend = new Resend('re_Kjhu8en9_A1pbYhY8JESg8x4GT3XsFQdV');
 
-export default async (req:NextApiRequest , res: NextApiResponse) =>{
+export default async (res: NextApiResponse) =>{
     const { data, error } = await resend.emails.send({
         from: 'dhanunjaybathula@gmail.com',
         to: ['leummopezellu-3177@yopmail.com'],

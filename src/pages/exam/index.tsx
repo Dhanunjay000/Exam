@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import ExamLayout from '@/components/Exam/ExamForm';
-import Question from '@/components/Exam/Question';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 const index = () => {
-  const answeredQuestions = 4;
-  const userName = 'John Doe';  
+  const answeredQuestions = 4; 
   const timeRemaining = '10:30';
   const router = useRouter();
   const [subject, setSubject] = useState('');

@@ -23,6 +23,7 @@ export default async function handler(req:NextApiRequest, res : NextApiResponse)
             subject : "OTP verfication",
             html
                 })
+                console.log(info);
         res. status(200).json({message : "message send successfully"})
     }
     catch(err){

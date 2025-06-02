@@ -42,7 +42,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           token: null,
 
         });
-        return res.status(201).json({ "message": "User Created Successfully" });
+        if(result)
+          return res.status(201).json({ "message": "User Created Successfully" });
       }
     }
     catch (error) {
@@ -63,7 +64,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           phone,
         }
       });
-      return res.status(201).json({ "message": "User updated Successfully" });
+      if(result)
+        return res.status(201).json({ "message": "User updated Successfully" });
     }
     catch (error: any) {
       return res.status(500).json({ "error": error.message });
@@ -81,6 +83,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           password: hashedPassword
         }
       });
+      console.log(result);
       return res.status(201).json({ "message": "User updated Successfully" });
     }
     catch (error: any) {

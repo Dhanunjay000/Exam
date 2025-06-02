@@ -1,6 +1,6 @@
 /* components/LoginForm.module.css */
 .container {
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    background: linear-gradient(135deg, #ffffff, #7c3aed);
     height: 100vh;
     display: flex;
     justify-content: center;

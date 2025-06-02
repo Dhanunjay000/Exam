@@ -31,7 +31,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const { subject, question, options, answer } = req.body;
       if (subject && question && options && answer) {
         const result = await db.collection("Questions").insertOne({ subject, question, options, answer });
-        res.status(200).json({ "success": "Question saved successfully" });
+        if(result)
+          res.status(200).json({ "success": "Question saved successfully" });
       }
       else
         res.status(400).json({ "error": "Error in saving the records" });
